@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.DisciplinaController" spacing="10">
+
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+    <Label text="Gerenciamento de Disciplinas" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNome" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Curso:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbCurso" prefWidth="200" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Descrição:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextArea fx:id="txtDescricao" prefRowCount="2" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10">
+        <Button text="Salvar" onAction="#onSalvar"/>
+        <Button text="Limpar" onAction="#onLimpar"/>
+    </HBox>
+
+    <Separator/>
+
+    <TableView fx:id="tabelaDisciplinas" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colNome" text="Disciplina" prefWidth="150"/>
+            <TableColumn fx:id="colCurso" text="Curso Vinculado" prefWidth="150"/>
+            <TableColumn fx:id="colDescricao" text="Descrição" prefWidth="200"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10">
+        <Button text="Editar Selecionado" onAction="#onEditar"/>
+        <Button text="Excluir Selecionado" onAction="#onExcluir"/>
+    </HBox>
+</VBox>

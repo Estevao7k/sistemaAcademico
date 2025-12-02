@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controller.TurmaController" spacing="10">
+
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+    <Label text="Gerenciamento de Turmas" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="Semestre:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtSemestre" promptText="Ex: 2025/1" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Horário:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtHorario" promptText="Ex: Seg 19:00" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Disciplina:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbDisciplina" prefWidth="200" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Professor:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbProfessor" prefWidth="200" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10">
+        <Button text="Salvar" onAction="#onSalvar"/>
+        <Button text="Limpar" onAction="#onLimpar"/>
+    </HBox>
+
+    <Separator/>
+
+    <TableView fx:id="tabelaTurmas" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colSemestre" text="Semestre" prefWidth="80"/>
+            <TableColumn fx:id="colDisciplina" text="Disciplina" prefWidth="200"/>
+            <TableColumn fx:id="colProfessor" text="Professor" prefWidth="200"/>
+            <TableColumn fx:id="colHorario" text="Horário" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10">
+        <Button text="Editar Selecionado" onAction="#onEditar"/>
+        <Button text="Excluir Selecionado" onAction="#onExcluir"/>
+    </HBox>
+</VBox>
